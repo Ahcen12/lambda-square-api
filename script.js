@@ -9,8 +9,17 @@ async function calculateSquare() {
 
   try {
     const response = await fetch(`${apiUrl}?name=${name}&number=${number}`);
-    const data = await response.json();
-    resultDiv.innerText = data.message || "Bir çıktı dönmedi 😅";
+    const text = await response.text(); // gelen yanıt düz metin olabilir
+    console.log("Ham yanıt:", text);
+
+    let data;
+    try {
+      data = JSON.parse(text); // JSON’a çevirmeyi dene
+    } catch {
+      data = { message: text }; // değilse direkt mesaj olarak yaz
+    }
+
+    resultDiv.innerText = data.message || "Yanıt alınamadı 😅";
   } catch (error) {
     resultDiv.innerText = "Hata oluştu: " + error.message;
   }
