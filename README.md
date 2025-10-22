@@ -143,7 +143,8 @@ Ali, 4 sayısının karesi = 16
 
 Uygulama Linki:https://ahcen12.github.io/lambda-square-api/
 
-
+Uygulama Demo Görüntüleri:
 
 <img width="2138" height="282" alt="image" src="https://github.com/user-attachments/assets/f229d911-0be0-489b-b7cb-81a2c42d9e37" />
 
+<img width="1970" height="1034" alt="image" src="https://github.com/user-attachments/assets/843211f8-e98b-4431-9561-0b11d5d619e3" />
