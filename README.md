@@ -115,7 +115,7 @@ Branch: main
 
 Folder: / (root)
 
-Sayfa linki otomatik oluşturulur (örn. https://kullaniciadi.github.io/lambda-square-api/).
+Sayfa linki otomatik oluşturulur.
 
 | Test | Input (URL)                          | Beklenen Çıktı                                         |
 | ---- | ------------------------------------ | ------------------------------------------------------ |
@@ -140,3 +140,5 @@ GitHub Pages – Frontend barındırma
 “Bir sayı gir, AWS Lambda senin için karesini hesaplasın.”
 
 Ali, 4 sayısının karesi = 16
+
+Uygulama Linki:https://ahcen12.github.io/lambda-square-api/
