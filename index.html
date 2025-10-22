@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Lambda Square API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1f4037, #99f2c8);
+      color: #222;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 { color: #1f4037; }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+    button {
+      background-color: #1f4037;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #388e3c;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #1f4037;
+    }
+  </style>
+</head>
+<body>
+  <h1>☁️ Lambda Square API</h1>
+  <p>Bir sayı gir, AWS Lambda senin için karesini hesaplasın.</p>
+
+  <input id="name" type="text" placeholder="İsim">
+  <input id="number" type="number" placeholder="Sayı">
+  <button onclick="calculateSquare()">Gönder</button>
+
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
