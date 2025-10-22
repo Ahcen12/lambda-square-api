@@ -142,3 +142,8 @@ GitHub Pages – Frontend barındırma
 Ali, 4 sayısının karesi = 16
 
 Uygulama Linki:https://ahcen12.github.io/lambda-square-api/
+
+
+
+<img width="2138" height="282" alt="image" src="https://github.com/user-attachments/assets/f229d911-0be0-489b-b7cb-81a2c42d9e37" />
+
