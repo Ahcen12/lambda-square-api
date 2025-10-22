@@ -100,13 +100,14 @@ Folder: / (root)
 
 Sayfa linki otomatik oluşturulur (örn. https://kullaniciadi.github.io/lambda-square-api/).
 
-🧪 Test Senaryoları
-Test	Input (URL)	Beklenen Çıktı
-1	/squareFunction?name=Ali&number=5	Merhaba Ali, 5 sayısının karesi = 25
-2	/squareFunction?name=Ece&number=12	Ece, 12 sayısının karesi = 144
-3	/squareFunction?name=Ahmet	Merhaba Ahmet, bu fonksiyon bulutta çalışıyor!
-4	/squareFunction	Merhaba Ziyaretçi, bu fonksiyon bulutta çalışıyor!
-5	/squareFunction?name=Ali&number=a	Lütfen geçerli bir sayı girin.
+| Test | Input (URL)                          | Beklenen Çıktı                                         |
+| ---- | ------------------------------------ | ------------------------------------------------------ |
+| 1    | `/squareFunction?name=Ali&number=5`  | **Merhaba Ali, 5 sayısının karesi = 25**               |
+| 2    | `/squareFunction?name=Ece&number=12` | **Ece, 12 sayısının karesi = 144**                     |
+| 3    | `/squareFunction?name=Ahmet`         | **Merhaba Ahmet, bu fonksiyon bulutta çalışıyor!**     |
+| 4    | `/squareFunction`                    | **Merhaba Ziyaretçi, bu fonksiyon bulutta çalışıyor!** |
+| 5    | `/squareFunction?name=Ali&number=a`  | **Lütfen geçerli bir sayı girin.**                     |
+
 📦 Kullanılan Servisler
 
 AWS Lambda – Fonksiyonun çalıştığı serverless ortam
