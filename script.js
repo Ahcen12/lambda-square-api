@@ -3,6 +3,12 @@ async function calculateSquare() {
   const number = document.getElementById("numberInput").value;
   const resultDiv = document.getElementById("result");
 
+  // Kullanıcı sayı girmediyse AWS'ye istek bile atma
+  if (!number) {
+    resultDiv.innerText = `Merhaba ${name}, bu fonksiyon bulutta çalışıyor!`;
+    return;
+  }
+
   resultDiv.innerText = "Hesaplanıyor...";
 
   const apiUrl = "https://mktq4gz54j.execute-api.eu-central-1.amazonaws.com/test/squareFunction";
@@ -19,12 +25,7 @@ async function calculateSquare() {
       data = { message: text };
     }
 
-    // 🔥 Mantık: sayı boşsa “bu fonksiyon bulutta çalışıyor!” yazsın
-    if (!number) {
-      resultDiv.innerText = `Merhaba ${name}, bu fonksiyon bulutta çalışıyor!`;
-    } else {
-      resultDiv.innerText = `Merhaba ${data.message}`;
-    }
+    resultDiv.innerText = `Merhaba ${data.message}`;
   } catch (error) {
     resultDiv.innerText = "Hata oluştu: " + error.message;
   }
