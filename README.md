@@ -35,12 +35,26 @@ Runtime: Python 3.x
 
 Aşağıdaki kodu Lambda fonksiyonuna yapıştır:
 
-import json
+
+    import json
 
 def lambda_handler(event, context):
     print("Fonksiyon çağrıldı! Event içeriği:")
     print(event)
 
+    # 1️⃣ OPTIONS (CORS preflight) isteğini özel olarak yanıtla
+    if event.get("requestContext", {}).get("http", {}).get("method") == "OPTIONS":
+        return {
+            "statusCode": 200,
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type"
+            },
+            "body": json.dumps({"message": "CORS preflight OK"})
+        }
+
+    # 2️⃣ Normal GET isteği işlemleri
     params = event.get('queryStringParameters', {}) or {}
     name = params.get('name', 'Ziyaretçi')
     number = params.get('number')
@@ -55,6 +69,8 @@ def lambda_handler(event, context):
     else:
         message = f"Merhaba {name}, bu fonksiyon bulutta çalışıyor!"
 
+    print(f"Gönderilen mesaj: {message}")
+
     return {
         "statusCode": 200,
         "headers": {
@@ -65,6 +81,7 @@ def lambda_handler(event, context):
         },
         "body": json.dumps({"message": message}, ensure_ascii=False)
     }
+
 
 2️⃣ API Gateway Üzerinden HTTP Tetikleyicisi Ekleme
 
