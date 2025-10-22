@@ -3,7 +3,6 @@ async function calculateSquare() {
   const number = document.getElementById("numberInput").value;
   const resultDiv = document.getElementById("result");
 
-  // Kullanıcı sayı girmediyse AWS'ye istek bile atma
   if (!number) {
     resultDiv.innerText = `Merhaba ${name}, bu fonksiyon bulutta çalışıyor!`;
     return;
