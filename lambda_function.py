@@ -2,10 +2,24 @@ import json
 
 def lambda_handler(event, context):
     print("Fonksiyon çağrıldı! Event içeriği:")
-    print(event)  
+    print(event)
 
-    name = event.get('queryStringParameters', {}).get('name', 'Takipçi')
-    number = event.get('queryStringParameters', {}).get('number')
+    # 1️⃣ OPTIONS (CORS preflight) isteğini özel olarak yanıtla
+    if event.get("requestContext", {}).get("http", {}).get("method") == "OPTIONS":
+        return {
+            "statusCode": 200,
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type"
+            },
+            "body": json.dumps({"message": "CORS preflight OK"})
+        }
+
+    # 2️⃣ Normal GET isteği işlemleri
+    params = event.get('queryStringParameters', {}) or {}
+    name = params.get('name', 'Ziyaretçi')
+    number = params.get('number')
 
     if number:
         try:
@@ -21,6 +35,11 @@ def lambda_handler(event, context):
 
     return {
         "statusCode": 200,
-        "headers": {"Content-Type": "application/json; charset=utf-8"},
+        "headers": {
+            "Content-Type": "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type"
+        },
         "body": json.dumps({"message": message}, ensure_ascii=False)
     }
