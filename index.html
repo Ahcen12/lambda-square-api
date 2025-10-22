@@ -14,27 +14,27 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      flex-direction: column;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2.5rem 3.5rem;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(8px);
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.3rem;
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
     }
 
     h2 {
       font-size: 1rem;
       font-weight: 400;
       opacity: 0.9;
-    }
-
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2rem 3rem;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      backdrop-filter: blur(10px);
+      margin-bottom: 1.4rem;
     }
 
     input {
@@ -43,13 +43,13 @@
       border-radius: 10px;
       outline: none;
       font-size: 1rem;
-      margin: 0.5rem;
-      width: 120px;
+      margin: 0.4rem;
+      width: 150px;
       text-align: center;
     }
 
     button {
-      padding: 0.7rem 1.2rem;
+      padding: 0.7rem 1.4rem;
       border: none;
       border-radius: 10px;
       background-color: #1d4033;
@@ -60,19 +60,18 @@
     }
 
     button:hover {
-      background-color: #2c6e55;
+      background-color: #2f6e5b;
     }
 
     .result {
-      margin-top: 1.3rem;
+      margin-top: 1.5rem;
       font-size: 1.1rem;
-      color: #fff;
       font-weight: 500;
+      color: #fff;
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
+      margin-top: 1.5rem;
       font-size: 0.9rem;
       opacity: 0.8;
     }
@@ -81,20 +80,47 @@
 <body>
   <div class="container">
     <h1>☁️ Lambda Square API</h1>
-    <h2>Merhaba ziyaretçi 👋<br>Bir sayı gir, AWS Lambda senin için karesini hesaplasın.</h2>
+    <h2>HTTP tetikleyicili serverless fonksiyon<br>Bir isim ve sayı gir 👇</h2>
 
-    <div>
-      <input type="text" id="nameInput" placeholder="İsim">
-      <input type="number" id="numberInput" placeholder="Sayı">
-      <button onclick="calculateSquare()">Gönder</button>
-    </div>
+    <input type="text" id="nameInput" placeholder="İsim (örn: Ali)">
+    <input type="number" id="numberInput" placeholder="Sayı (örn: 5)">
+    <button onclick="calculateSquare()">Gönder</button>
 
     <div class="result" id="result"></div>
+
+    <footer>🚀 AWS Lambda + API Gateway + GitHub Pages</footer>
   </div>
 
-  <footer>🚀 AWS Lambda + API Gateway + GitHub Pages</footer>
+  <script>
+    async function calculateSquare() {
+      const name = document.getElementById("nameInput").value.trim();
+      const number = document.getElementById("numberInput").value.trim();
+      const resultDiv = document.getElementById("result");
 
-  <script src="script.js"></script>
+      if (!name || !number) {
+        resultDiv.innerText = "Lütfen isim ve sayı gir!";
+        return;
+      }
 
+      resultDiv.innerText = "⏳ Hesaplanıyor...";
+
+      try {
+        const response = await fetch(
+          `https://mktq4gz54j.execute-api.eu-central-1.amazonaws.com/test/squareFunction?name=${encodeURIComponent(name)}&number=${encodeURIComponent(number)}`
+        );
+
+        if (!response.ok) {
+          throw new Error("API hatası: " + response.status);
+        }
+
+        const data = await response.json();
+
+        // Beklenen çıktı formatı
+        resultDiv.innerText = data.message || `Merhaba ${name}, ${number} sayısının karesi = ${number * number}`;
+      } catch (error) {
+        resultDiv.innerText = "Hata oluştu: " + error.message;
+      }
+    }
+  </script>
 </body>
 </html>
