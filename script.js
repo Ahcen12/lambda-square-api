@@ -19,7 +19,7 @@ async function calculateSquare() {
       data = { message: text }; // değilse direkt mesaj olarak yaz
     }
 
-    resultDiv.innerText = data.message || "Yanıt alınamadı 😅";
+    resultDiv.innerText = `Merhaba ${data.message}`;
   } catch (error) {
     resultDiv.innerText = "Hata oluştu: " + error.message;
   }
