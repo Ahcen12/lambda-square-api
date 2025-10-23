@@ -2,7 +2,7 @@
 
 Bulutta Sunucusuz (Serverless) Uygulama Geliştirme – “My First Serverless Function+”
 
-🎯 Fonksiyonun Yaptığı İş
+Fonksiyonun Yaptığı İş
 
 Bu proje, AWS Lambda üzerinde çalışan basit ama fonksiyonel bir serverless API örneğidir.
 Fonksiyonun amacı:
@@ -22,7 +22,7 @@ Eğer parametre verilmezse:
 AWS Lambda fonksiyonu, gelen HTTP isteğini API Gateway üzerinden alır ve sonuç olarak JSON formatında bir yanıt döndürür.
 Frontend kısmı GitHub Pages üzerinde barındırılmıştır.
 
-🚀 Nasıl Deploy Edilir
+Nasıl Deploy Edilir
 1️⃣ Lambda Fonksiyonu Oluşturma
 
 AWS Console → Lambda → “Create function”
@@ -125,7 +125,7 @@ Sayfa linki otomatik oluşturulur.
 | 4    | `/squareFunction`                    | **Merhaba Ziyaretçi, bu fonksiyon bulutta çalışıyor!** |
 | 5    | `/squareFunction?name=Ali&number=a`  | **Lütfen geçerli bir sayı girin.**                     |
 
-📦 Kullanılan Servisler
+Kullanılan Servisler
 
 AWS Lambda – Fonksiyonun çalıştığı serverless ortam
 
@@ -135,7 +135,7 @@ Amazon CloudWatch – Log yönetimi
 
 GitHub Pages – Frontend barındırma
 
-🖼️ Örnek Çalışma Görseli
+Örnek Çalışma Görseli
 
 “Bir sayı gir, AWS Lambda senin için karesini hesaplasın.”
 
