@@ -4,7 +4,7 @@ def lambda_handler(event, context):
     print("Fonksiyon çağrıldı! Event içeriği:")
     print(event)
 
-    # 1️⃣ OPTIONS (CORS preflight) isteğini özel olarak yanıtla
+    
     if event.get("requestContext", {}).get("http", {}).get("method") == "OPTIONS":
         return {
             "statusCode": 200,
@@ -16,7 +16,7 @@ def lambda_handler(event, context):
             "body": json.dumps({"message": "CORS preflight OK"})
         }
 
-    # 2️⃣ Normal GET isteği işlemleri
+    
     params = event.get('queryStringParameters', {}) or {}
     name = params.get('name', 'Ziyaretçi')
     number = params.get('number')
