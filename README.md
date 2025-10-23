@@ -148,4 +148,5 @@ Uygulama Demo Görüntüleri:
 
 <img width="2138" height="282" alt="image" src="https://github.com/user-attachments/assets/f229d911-0be0-489b-b7cb-81a2c42d9e37" />
 
-<img width="1970" height="1034" alt="image" src="https://github.com/user-attachments/assets/843211f8-e98b-4431-9561-0b11d5d619e3" />
+<img width="1290" height="733" alt="image" src="https://github.com/user-attachments/assets/053e59bf-ed01-49a6-9be3-242495be5657" />
+
