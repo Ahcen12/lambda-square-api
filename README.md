@@ -23,6 +23,7 @@ AWS Lambda fonksiyonu, gelen HTTP isteğini API Gateway üzerinden alır ve sonu
 Frontend kısmı GitHub Pages üzerinde barındırılmıştır.
 
 Nasıl Deploy Edilir
+
 1️⃣ Lambda Fonksiyonu Oluşturma
 
 AWS Console → Lambda → “Create function”
